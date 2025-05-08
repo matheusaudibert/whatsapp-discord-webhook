@@ -109,9 +109,7 @@ export const initWASocket = async (): Promise<void> => {
         const remoteJid = message.key.remoteJid;
 
         // Verifica se a mensagem é de um dos grupos permitidos
-        if (!allowedJids.includes(remoteJid || "")) {
-          continue;
-        }
+        if (!allowedJids.includes(remoteJid || "")) continue;
 
         const messageContent =
           message.message?.conversation ||
