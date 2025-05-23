@@ -94,11 +94,6 @@ export const initWASocket = async (): Promise<void> => {
   sock.ev.on(
     "messages.upsert",
     async ({ messages }: { messages: WAMessage[] }) => {
-      // const allowedJids = [
-      //   "120363377456036121@g.us", // Grupo 1
-      //   "120363258806115889@g.us", // Grupo 2
-      // ];
-
       const allowedJids = [
         process.env.GRUPO1_ID, // Grupo 1
         process.env.GRUPO2_ID, // Grupo 2
