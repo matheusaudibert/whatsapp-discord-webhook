@@ -103,8 +103,8 @@ export const initWASocket = async (): Promise<void> => {
         const message = messages[index];
         const remoteJid = message.key.remoteJid;
 
-        // Verifica se a mensagem é de um dos grupos permitidos
-        if (!allowedJids.includes(remoteJid || "")) continue;
+        // // Verifica se a mensagem é de um dos grupos permitidos
+        // if (!allowedJids.includes(remoteJid || "")) continue;
 
         const messageContent =
           message.message?.conversation ||
@@ -120,7 +120,7 @@ export const initWASocket = async (): Promise<void> => {
         // Envia a mensagem para o webhook do Discord
         try {
           await axios.post(process.env.DISCORD_WEBHOOK_URL!, {
-            content: `${messageContent}\n<@&1369762080651087903>`,
+            content: `<@&1369762080651087903>\n\n${messageContent}`,
           });
           console.log("Mensagem enviada para o Discord com sucesso.");
         } catch (error) {
